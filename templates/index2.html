@@ -1,0 +1,41 @@
+{% extends "template.html" %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('../static/img/background.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Daniel Ternyak</h1>
+                        <hr class="small">
+                        <span class="subheading">Web Developer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
+{% block content %}
+  <h2>Contact</h2>
+  <form action="{{ url_for('contact') }}" method=post>
+    {{ form.hidden_tag() }}
+ 
+    {{ form.name.label }}
+    {{ form.name }}
+ 
+    {{ form.email.label }}
+    {{ form.email }}
+ 
+    {{ form.subject.label }}
+    {{ form.subject }}
+ 
+    {{ form.message.label }}
+    {{ form.message }}
+ 
+    {{ form.submit }}
+  </form>
+
+{% endblock %}
